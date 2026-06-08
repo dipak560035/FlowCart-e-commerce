@@ -1,12 +1,18 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useStore } from "@/store";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { closeQuickView } from "@/store/slices/uiSlice";
+import { addToCart } from "@/store/slices/cartSlice";
+import { toggleWishlist } from "@/store/slices/wishlistSlice";
 import { X, Heart, ShoppingCart, Star } from "lucide-react";
 import gsap from "gsap";
+import Link from "next/link";
 
 export function QuickViewModal() {
-  const { isQuickViewOpen, quickViewProduct, closeQuickView, addToCart, toggleWishlist, wishlist } = useStore();
+  const dispatch = useAppDispatch();
+  const { isQuickViewOpen, quickViewProduct } = useAppSelector((state) => state.ui);
+  const { items: wishlistItems } = useAppSelector((state) => state.wishlist);
   const modalRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -37,13 +43,13 @@ export function QuickViewModal() {
       opacity: 0,
       duration: 0.3,
       ease: "power2.in",
-      onComplete: closeQuickView,
+      onComplete: () => dispatch(closeQuickView()),
     });
   };
 
   if (!isQuickViewOpen || !quickViewProduct) return null;
 
-  const isWishlisted = wishlist.some((item) => item.id === quickViewProduct.id);
+  const isWishlisted = wishlistItems.some((item) => item.id === quickViewProduct.id);
 
   return (
     <div
@@ -97,18 +103,23 @@ export function QuickViewModal() {
 
               <p className="text-gray-400 mb-8">{quickViewProduct.description}</p>
 
-              <p className="text-4xl font-bold mb-8">${quickViewProduct.price}</p>
+              <div className="flex items-center gap-3 mb-8">
+                <p className="text-4xl font-bold">${quickViewProduct.price}</p>
+                {quickViewProduct.originalPrice && (
+                  <p className="text-2xl text-gray-500 line-through">${quickViewProduct.originalPrice}</p>
+                )}
+              </div>
 
               <div className="flex gap-4">
                 <button
-                  onClick={() => addToCart(quickViewProduct)}
+                  onClick={() => dispatch(addToCart(quickViewProduct))}
                   className="flex-1 bg-white text-black py-4 rounded-full font-semibold hover:bg-gray-200 transition flex items-center justify-center gap-2"
                 >
                   <ShoppingCart className="h-5 w-5" />
                   Add to Cart
                 </button>
                 <button
-                  onClick={() => toggleWishlist(quickViewProduct)}
+                  onClick={() => dispatch(toggleWishlist(quickViewProduct))}
                   className={`p-4 rounded-full border-2 transition ${
                     isWishlisted
                       ? "border-red-500 text-red-500"
@@ -117,6 +128,13 @@ export function QuickViewModal() {
                 >
                   <Heart className={`h-6 w-6 ${isWishlisted ? "fill-current" : ""}`} />
                 </button>
+                <Link
+                  href={`/products/${quickViewProduct.id}`}
+                  onClick={handleClose}
+                  className="p-4 rounded-full border-2 border-white/20 hover:border-white/40 transition"
+                >
+                  <X className="h-6 w-6 rotate-45" />
+                </Link>
               </div>
             </div>
           </div>

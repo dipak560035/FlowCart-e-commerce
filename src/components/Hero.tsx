@@ -1,13 +1,18 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import gsap from "gsap";
+import Link from "next/link";
 
 export function Hero() {
+  const pathname = usePathname();
+  const router = useRouter();
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -25,7 +30,7 @@ export function Hero() {
         "-=0.4"
       )
       .fromTo(
-        buttonRef.current,
+        buttonsRef.current,
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" },
         "-=0.3"
@@ -37,6 +42,15 @@ export function Hero() {
         "-=0.5"
       );
   }, []);
+
+  const handleShopNow = () => {
+    if (pathname === "/") {
+      const productsSection = document.getElementById("products");
+      productsSection?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push("/products");
+    }
+  };
 
   return (
     <section
@@ -62,12 +76,20 @@ export function Hero() {
               Premium tech products designed for the modern lifestyle.
               Experience innovation, quality, and style.
             </p>
-            <button
-              ref={buttonRef}
-              className="bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition transform hover:scale-105"
-            >
-              Shop Now
-            </button>
+            <div ref={buttonsRef} className="flex flex-wrap gap-4">
+              <button
+                onClick={handleShopNow}
+                className="bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition transform hover:scale-105"
+              >
+                Shop Now
+              </button>
+              <Link
+                href="/categories"
+                className="border border-white/30 px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition"
+              >
+                Shop by Category
+              </Link>
+            </div>
           </div>
 
           <div className="flex justify-center">

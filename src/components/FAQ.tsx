@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Search } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -22,12 +22,26 @@ const faqs = [
     question: "Can I track my order?",
     answer: "Absolutely! Once your order ships, you'll receive a tracking number via email.",
   },
+  {
+    question: "What payment methods do you accept?",
+    answer: "We accept all major credit cards, PayPal, and Apple Pay.",
+  },
+  {
+    question: "How do I contact customer service?",
+    answer: "You can reach our customer service team via email at support@flowcart.com or through our contact form.",
+  },
 ];
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
   const sectionRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  const filteredFaqs = faqs.filter((faq) =>
+    faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -56,11 +70,23 @@ export function FAQ() {
   return (
     <section ref={sectionRef} className="py-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
           Frequently Asked Questions
         </h2>
+        <div className="relative mb-12">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search questions..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-6 py-4 rounded-full bg-white/5 border border-white/10 focus:outline-none focus:border-white/30"
+            />
+          </div>
+        </div>
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {filteredFaqs.map((faq, index) => (
             <div
               key={index}
               ref={(el) => (itemsRef.current[index] = el)}
@@ -84,6 +110,11 @@ export function FAQ() {
               )}
             </div>
           ))}
+          {filteredFaqs.length === 0 && (
+            <div className="text-center text-gray-400 py-8">
+              No questions found. Try a different search term.
+            </div>
+          )}
         </div>
       </div>
     </section>

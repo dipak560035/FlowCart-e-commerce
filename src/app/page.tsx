@@ -10,15 +10,18 @@ import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { Newsletter } from "@/components/Newsletter";
 import { Footer } from "@/components/Footer";
+import { useAppSelector } from "@/store/hooks";
 
 export default function Home() {
+  const { isQuickViewOpen, quickViewProduct } = useAppSelector((state) => state.ui);
+
   return (
     <div className="min-h-screen">
       <Navbar />
       <Hero />
       <Categories />
       <FeaturedProducts />
-      <QuickViewModal />
+      {isQuickViewOpen && quickViewProduct && <QuickViewModal />}
       <PromotionalBanner />
       <Testimonials />
       <FAQ />

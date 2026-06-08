@@ -15,17 +15,17 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Shop</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <Link href="#" className="hover:text-white transition">
+                <Link href="/products" className="hover:text-white transition">
                   All Products
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white transition">
+                <Link href="/products?sort=new" className="hover:text-white transition">
                   New Arrivals
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white transition">
+                <Link href="/products?sort=popular" className="hover:text-white transition">
                   Best Sellers
                 </Link>
               </li>
@@ -35,17 +35,17 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Support</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <Link href="#" className="hover:text-white transition">
+                <Link href="/faq" className="hover:text-white transition">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white transition">
+                <Link href="/contact" className="hover:text-white transition">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white transition">
+                <Link href="/shipping" className="hover:text-white transition">
                   Shipping
                 </Link>
               </li>
@@ -55,17 +55,17 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <Link href="#" className="hover:text-white transition">
+                <Link href="/about" className="hover:text-white transition">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white transition">
+                <Link href="/careers" className="hover:text-white transition">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white transition">
+                <Link href="/privacy" className="hover:text-white transition">
                   Privacy
                 </Link>
               </li>
