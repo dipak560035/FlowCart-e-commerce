@@ -10,20 +10,20 @@ import { toggleWishlist } from "@/store/slices/wishlistSlice";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
+import { ProductSkeleton } from "@/components/ProductSkeleton";
 import { Heart, ShoppingCart, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-async function fetchProduct(id: string) {
+async function fetchProduct(id: string): Promise<Product | undefined> {
   const res = await fetch("/api/products");
   if (!res.ok) throw new Error("Failed to fetch product");
   const products = await res.json();
-  const product = products.find((p: Product) => p.id === parseInt(id));
-  return product;
+  return products.find((p: Product) => p.id === parseInt(id));
 }
 
-async function fetchRelatedProducts(categorySlug: string, currentProductId: number) {
+async function fetchRelatedProducts(categorySlug: string, currentProductId: number): Promise<Product[]> {
   const res = await fetch(`/api/products?category=${categorySlug}`);
   if (!res.ok) throw new Error("Failed to fetch related products");
   const products = await res.json();
@@ -33,7 +33,8 @@ async function fetchRelatedProducts(categorySlug: string, currentProductId: numb
 export default function ProductDetailsPage({ params }: { params: { id: string } }) {
   const dispatch = useAppDispatch();
   const { items: wishlistItems } = useAppSelector((state) => state.wishlist);
-  const { data: product, isLoading } = useQuery<Product>({
+
+  const { data: product, isLoading } = useQuery<Product | undefined>({
     queryKey: ["product", params.id],
     queryFn: () => fetchProduct(params.id),
   });
@@ -65,20 +66,22 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
       "-=0.4"
     );
 
-    gsap.fromTo(
-      relatedRef.current,
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: relatedRef.current,
-          start: "top 80%",
-        },
-      }
-    );
+    if (relatedRef.current) {
+      gsap.fromTo(
+        relatedRef.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: relatedRef.current,
+            start: "top 80%",
+          },
+        }
+      );
+    }
   }, [product]);
 
   if (!isLoading && !product) {
@@ -92,9 +95,7 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
         <main className="pt-32 pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-center items-center h-96">
-              <div className="animate-pulse">
-                <div className="h-96 w-full bg-white/10 rounded-2xl" />
-              </div>
+              <ProductSkeleton />
             </div>
           </div>
         </main>
@@ -128,14 +129,16 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
                   <>
                     <button
                       onClick={() => setCurrentImageIndex((prev) =>
-                        prev === 0 ? product.images.length - 1 : prev - 1))}
+                        prev === 0 ? product.images.length - 1 : prev - 1
+                      )}
                       className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 p-2 rounded-full transition"
                     >
                       <ChevronLeft className="h-6 w-6" />
                     </button>
                     <button
                       onClick={() => setCurrentImageIndex((prev) =>
-                        prev === product.images.length - 1 ? 0 : prev + 1)}
+                        prev === product.images.length - 1 ? 0 : prev + 1
+                      )}
                       className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 p-2 rounded-full transition"
                     >
                       <ChevronRight className="h-6 w-6" />
@@ -145,19 +148,19 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
               </div>
               <div className="flex gap-4 overflow-x-auto">
                 {product.images.map((image, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition ${
-                    currentImageIndex === index ? "border-white" : "border-transparent"
-                  }`}
-                >
-                  <img
-                    src={image}
-                    alt={`${product.name} ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition ${
+                      currentImageIndex === index ? "border-white" : "border-transparent"
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`${product.name} ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
                 ))}
               </div>
             </div>
@@ -231,8 +234,8 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
             <section ref={relatedRef}>
               <h2 className="text-3xl font-bold mb-8">Related Products</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                {relatedProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+                {relatedProducts.map((relatedProduct) => (
+                  <ProductCard key={relatedProduct.id} product={relatedProduct} />
                 ))}
               </div>
             </section>

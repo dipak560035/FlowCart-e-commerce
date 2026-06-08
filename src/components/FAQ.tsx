@@ -89,7 +89,7 @@ export function FAQ() {
           {filteredFaqs.map((faq, index) => (
             <div
               key={index}
-              ref={(el) => (itemsRef.current[index] = el)}
+              ref={(el) => { itemsRef.current[index] = el; }}
               className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden"
             >
               <button

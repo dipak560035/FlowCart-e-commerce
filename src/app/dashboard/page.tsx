@@ -146,7 +146,7 @@ export default function DashboardPage() {
             {stats.map((stat, index) => (
               <div
                 key={stat.title}
-                ref={(el) => (cardsRef.current[index] = el)}
+                ref={(el) => { cardsRef.current[index] = el; }}
                 className="bg-white/5 border border-white/10 rounded-2xl p-6"
               >
                 <div className="flex items-center justify-between mb-4">
@@ -169,7 +169,7 @@ export default function DashboardPage() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 mb-8">
-            <div ref={(el) => (chartsRef.current[0] = el)} className="bg-white/5 border border-white/10 rounded-2xl p-8">
+            <div ref={(el) => { chartsRef.current[0] = el; }} className="bg-white/5 border border-white/10 rounded-2xl p-8">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-bold">Revenue Overview</h3>
                 <div className="flex items-center gap-2 text-green-400">
@@ -209,7 +209,7 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            <div ref={(el) => (chartsRef.current[1] = el)} className="bg-white/5 border border-white/10 rounded-2xl p-8">
+            <div ref={(el) => { chartsRef.current[1] = el; }} className="bg-white/5 border border-white/10 rounded-2xl p-8">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-bold">Top Products</h3>
               </div>

@@ -97,7 +97,7 @@ function CategoryContent({ params }: { params: { slug: string } }) {
                 products.map((product, index) => (
                   <div
                     key={product.id}
-                    ref={(el) => (cardsRef.current[index] = el)}
+                    ref={(el) => { cardsRef.current[index] = el; }}
                   >
                     <ProductCard product={product} />
                   </div>

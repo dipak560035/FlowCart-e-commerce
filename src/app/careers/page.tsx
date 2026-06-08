@@ -136,7 +136,7 @@ export default function CareersPage() {
               {jobs.map((job, index) => (
                 <div
                   key={job.id}
-                  ref={(el) => (jobsRef.current[index] = el)}
+                  ref={(el) => { jobsRef.current[index] = el; }}
                   className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-white/20 transition"
                 >
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">

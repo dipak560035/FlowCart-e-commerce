@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Product } from "@/types";
 
-export const products: Product[] = [
+const products: Product[] = [
   {
     id: 1,
     name: "FlowPod Pro",
@@ -168,7 +168,7 @@ export const products: Product[] = [
     categorySlug: "travel",
     images: [
       "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800",
-      "https://images.unsplash.com/photo-1608042314453-ae33d56c3105?w=800",
+      "https://images.unsplash.com/photo-1608042314145-ae33d56c3105?w=800",
     ],
     image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
     rating: 4.7,
@@ -196,6 +196,7 @@ export async function GET(request: Request) {
   const sale = searchParams.get("sale");
   const sort = searchParams.get("sort");
   const category = searchParams.get("category");
+  const q = searchParams.get("q");
 
   let filteredProducts = [...products];
 
@@ -207,10 +208,29 @@ export async function GET(request: Request) {
     filteredProducts = filteredProducts.filter((p) => p.categorySlug === category);
   }
 
-  if (sort === "new") {
-    filteredProducts = filteredProducts.reverse();
-  } else if (sort === "popular") {
-    filteredProducts = filteredProducts.sort((a, b) => b.rating - a.rating);
+  if (q) {
+    const query = q.toLowerCase();
+    filteredProducts = filteredProducts.filter(
+      (p) =>
+        p.name.toLowerCase().includes(query) ||
+        p.description.toLowerCase().includes(query) ||
+        p.category.toLowerCase().includes(query)
+    );
+  }
+
+  switch (sort) {
+    case "newest":
+      filteredProducts = filteredProducts.sort((a, b) => b.id - a.id);
+      break;
+    case "popular":
+      filteredProducts = filteredProducts.sort((a, b) => b.rating - a.rating);
+      break;
+    case "price-low":
+      filteredProducts = filteredProducts.sort((a, b) => a.price - b.price);
+      break;
+    case "price-high":
+      filteredProducts = filteredProducts.sort((a, b) => b.price - a.price);
+      break;
   }
 
   return NextResponse.json(filteredProducts);

@@ -20,7 +20,7 @@ export function Categories() {
   });
 
   const sectionRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const cardsRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useEffect(() => {
     if (!categories) return;
@@ -78,7 +78,7 @@ export function Categories() {
             <Link
               key={category.id}
               href={`/categories/${category.slug}`}
-              ref={(el) => (cardsRef.current[index] = el)}
+              ref={(el) => { cardsRef.current[index] = el; }}
               className="group"
             >
               <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 transition transform hover:scale-105">

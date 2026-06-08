@@ -17,13 +17,15 @@ export default function ContactPage() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.fromTo(
+    const tl = gsap.timeline();
+
+    tl.fromTo(
       formRef.current,
       { y: 30, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
     );
 
-    gsap.fromTo(
+    tl.fromTo(
       infoRef.current,
       { y: 30, opacity: 0 },
       {

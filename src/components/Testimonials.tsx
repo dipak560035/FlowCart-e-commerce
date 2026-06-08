@@ -57,7 +57,7 @@ export function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.name}
-              ref={(el) => (cardsRef.current[index] = el)}
+              ref={(el) => { cardsRef.current[index] = el; }}
               className="bg-black border border-white/10 rounded-2xl p-8"
             >
               <div className="flex gap-1 mb-6">
