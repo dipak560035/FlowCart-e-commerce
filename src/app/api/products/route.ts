@@ -182,10 +182,10 @@ const products: Product[] = [
     category: "Home",
     categorySlug: "home",
     images: [
-      "https://images.unsplash.com/photo-1576659519943-8d277e1a8d17?w=800",
-      "https://images.unsplash.com/photo-1587315952527-1e972e06e376?w=800",
+      "https://plus.unsplash.com/premium_photo-1679513691474-73102089c117?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800",
+      "https://plus.unsplash.com/premium_photo-1679513691474-73102089c117?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800",
     ],
-    image: "https://images.unsplash.com/photo-1576659519943-8d277e1a8d17?w=400",
+    image: "https://plus.unsplash.com/premium_photo-1679513691474-73102089c117?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400",
     rating: 4.3,
     features: ["Body Composition", "App Sync", "Multiple Users", "LED Display"],
   },
