@@ -205,10 +205,10 @@ export default function ShippingPage() {
                             <div className="flex items-center gap-3">
                               <ChevronRight className="w-4 h-4 text-blue-400" />
                               <span className="text-gray-300">{item.label}</span>
-                              {item.time && <span className="text-sm text-gray-500">({item.time})</span>}
+                              {('time' in item) && item.time && <span className="text-sm text-gray-500">({item.time})</span>}
                             </div>
                             <div>
-                              {item.highlight ? (
+                              {('highlight' in item) && item.highlight ? (
                                 <span className="text-green-400 font-semibold">{item.price}</span>
                               ) : (
                                 <span className="text-gray-400">{item.price}</span>

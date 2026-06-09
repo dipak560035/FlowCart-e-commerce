@@ -298,9 +298,9 @@ export default function ReturnsPage() {
                               )}
                             </div>
                             <div>
-                              {typeof item === 'object' && item.highlight ? (
+                              {typeof item === 'object' && item && 'highlight' in item && item.highlight ? (
                                 <span className="text-green-400 font-semibold">Full Refund</span>
-                              ) : typeof item === 'object' && item.status === 'inactive' ? (
+                              ) : typeof item === 'object' && item && 'status' in item && item.status === 'inactive' ? (
                                 <span className="text-red-400 text-sm">Not eligible</span>
                               ) : null}
                             </div>

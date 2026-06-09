@@ -10,6 +10,9 @@ export interface Product {
   image: string;
   rating: number;
   features: string[];
+  isNew?: boolean;
+  reviews?: number;
+  createdAt?: string;
   onSale?: boolean;
 }
 

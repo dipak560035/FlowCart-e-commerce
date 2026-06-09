@@ -579,10 +579,12 @@ export function Hero({ onShopNow }: HeroProps) {
       );
 
       // Buttons animation with stagger
-      gsap.fromTo(buttonsRef.current?.children,
-        { y: 30, opacity: 0, scale: 0.9 },
-        { y: 0, opacity: 1, scale: 1, duration: 0.6, stagger: 0.1, ease: "back.out(0.8)", delay: 0.7 }
-      );
+      if (buttonsRef.current) {
+        gsap.fromTo(buttonsRef.current.children,
+          { y: 30, opacity: 0, scale: 0.9 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.6, stagger: 0.1, ease: "back.out(0.8)", delay: 0.7 }
+        );
+      }
 
       // Image animation
       gsap.fromTo(imageRef.current,
@@ -596,10 +598,12 @@ export function Hero({ onShopNow }: HeroProps) {
         start: "top 85%",
         end: "bottom 60%",
         onEnter: () => {
-          gsap.fromTo(statsRef.current?.children,
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: "power2.out", clearProps: "all" }
-          );
+          if (statsRef.current) {
+            gsap.fromTo(statsRef.current.children,
+              { y: 30, opacity: 0 },
+              { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: "power2.out", clearProps: "all" }
+            );
+          }
         },
         once: true
       });
@@ -700,13 +704,13 @@ export function Hero({ onShopNow }: HeroProps) {
       </div>
 
       {/* Floating decorative elements */}
-      <div ref={el => floatingElementsRef.current[0] = el} className="absolute top-1/4 left-[5%] text-3xl opacity-10 pointer-events-none hidden lg:block">
+      <div ref={(el) => { floatingElementsRef.current[0] = el; }} className="absolute top-1/4 left-[5%] text-3xl opacity-10 pointer-events-none hidden lg:block">
         ✨
       </div>
-      <div ref={el => floatingElementsRef.current[1] = el} className="absolute bottom-1/3 right-[5%] text-4xl opacity-10 pointer-events-none hidden lg:block">
+      <div ref={(el) => { floatingElementsRef.current[1] = el; }} className="absolute bottom-1/3 right-[5%] text-4xl opacity-10 pointer-events-none hidden lg:block">
         🚀
       </div>
-      <div ref={el => floatingElementsRef.current[2] = el} className="absolute top-2/3 left-[10%] text-2xl opacity-10 pointer-events-none hidden lg:block">
+      <div ref={(el) => { floatingElementsRef.current[2] = el; }} className="absolute top-2/3 left-[10%] text-2xl opacity-10 pointer-events-none hidden lg:block">
         💎
       </div>
 

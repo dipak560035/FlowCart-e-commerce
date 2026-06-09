@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import { notFound } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { Product } from "@/types";
@@ -30,13 +30,14 @@ async function fetchRelatedProducts(categorySlug: string, currentProductId: numb
   return products.filter((p: Product) => p.id !== currentProductId).slice(0, 4);
 }
 
-export default function ProductDetailsPage({ params }: { params: { id: string } }) {
+export default function ProductDetailsPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   const dispatch = useAppDispatch();
   const { items: wishlistItems } = useAppSelector((state) => state.wishlist);
 
   const { data: product, isLoading } = useQuery<Product | undefined>({
-    queryKey: ["product", params.id],
-    queryFn: () => fetchProduct(params.id),
+    queryKey: ["product", id],
+    queryFn: () => fetchProduct(id),
   });
 
   const { data: relatedProducts } = useQuery<Product[]>({

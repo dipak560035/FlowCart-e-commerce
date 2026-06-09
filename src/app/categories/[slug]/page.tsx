@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, Suspense } from "react";
+import { use, useEffect, useRef, Suspense } from "react";
 import { notFound } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { Product, Category } from "@/types";
@@ -26,15 +26,17 @@ async function fetchCategoryProducts(slug: string) {
   return res.json();
 }
 
-function CategoryContent({ params }: { params: { slug: string } }) {
+function CategoryContent({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+
   const { data: category, isLoading: categoryLoading } = useQuery<Category>({
-    queryKey: ["category", params.slug],
-    queryFn: () => fetchCategory(params.slug),
+    queryKey: ["category", slug],
+    queryFn: () => fetchCategory(slug),
   });
 
   const { data: products, isLoading: productsLoading } = useQuery<Product[]>({
-    queryKey: ["categoryProducts", params.slug],
-    queryFn: () => fetchCategoryProducts(params.slug),
+    queryKey: ["categoryProducts", slug],
+    queryFn: () => fetchCategoryProducts(slug),
     enabled: !!category,
   });
 
@@ -117,7 +119,7 @@ function CategoryContent({ params }: { params: { slug: string } }) {
   );
 }
 
-export default function CategoryPage({ params }: { params: { slug: string } }) {
+export default function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <CategoryContent params={params} />
