@@ -191,9 +191,9 @@ export function ProductCard({ product }: ProductCardProps) {
         
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <p className="text-xl font-bold text-white">${product.price}</p>
+            <p className="text-xl font-bold text-white">Rs.{product.price}</p>
             {product.originalPrice && (
-              <p className="text-sm text-gray-500 line-through">${product.originalPrice}</p>
+              <p className="text-sm text-gray-500 line-through">Rs.{product.originalPrice}</p>
             )}
           </div>
           <button

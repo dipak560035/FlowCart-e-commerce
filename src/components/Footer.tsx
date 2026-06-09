@@ -308,11 +308,11 @@ export function Footer() {
                 </li>
                 <li className="flex items-center gap-3 text-gray-400 text-sm">
                   <Phone className="w-4 h-4 text-blue-400" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+977-9805104098</span>
                 </li>
                 <li className="flex items-center gap-3 text-gray-400 text-sm">
                   <MapPin className="w-4 h-4 text-blue-400" />
-                  <span>123 Tech Street, NY 10001</span>
+                  <span>Kathmandu, Nepal</span>
                 </li>
               </ul>
             </div>
@@ -322,7 +322,7 @@ export function Footer() {
           <div className="border-t border-white/10 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-500 text-sm">
-                © 2024 FlowCart. All rights reserved.
+                © 2026 FlowCart. All rights reserved.
               </p>
               <div className="flex gap-6 text-sm">
                 <Link href="/privacy" className="text-gray-500 hover:text-white transition text-xs">
