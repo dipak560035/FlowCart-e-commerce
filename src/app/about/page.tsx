@@ -318,15 +318,15 @@ export default function AboutPage() {
           {/* CTA Section */}
           <section className="mt-12 text-center">
             <div className="bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-3xl p-12 border border-white/10">
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">Join Our Community</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">Join Our Team</h3>
               <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-                Be part of something special. Get exclusive offers, early access to new products, and more.
+                Join our team and be part of something special. Enjoy competitive benefits, early access to new products, and career growth opportunities.
               </p>
               <Link
-                href="/products"
+                href="/careers"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
               >
-                <span>Shop Now</span>
+                <span>View Careers</span>
                 <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
