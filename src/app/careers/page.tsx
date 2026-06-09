@@ -15,7 +15,7 @@ const jobs = [
     department: "Design",
     location: "San Francisco, CA",
     type: "Full-time",
-    salary: "$120k - $160k",
+    salary: "3000k - 5000k",
     description: "Join our design team to create beautiful and intuitive user experiences for our customers. You'll work closely with product managers and engineers to bring ideas to life.",
     featured: true
   },
@@ -25,7 +25,7 @@ const jobs = [
     department: "Engineering",
     location: "Remote",
     type: "Full-time",
-    salary: "$100k - $140k",
+    salary: "100k - 140k",
     description: "Help us build the next generation of our e-commerce platform using modern technologies like React, Next.js, and TypeScript.",
     featured: false
   },
@@ -35,7 +35,7 @@ const jobs = [
     department: "Marketing",
     location: "New York, NY",
     type: "Full-time",
-    salary: "$90k - $130k",
+    salary: "90k - 130k",
     description: "Lead our marketing efforts and help us grow our brand and reach new customers across digital channels.",
     featured: false
   },
@@ -45,7 +45,7 @@ const jobs = [
     department: "Customer Success",
     location: "Remote",
     type: "Part-time",
-    salary: "$40k - $50k",
+    salary: "40k - 50k",
     description: "Provide exceptional customer service and help our customers with their needs. Perfect for those who love helping others.",
     featured: false
   }
