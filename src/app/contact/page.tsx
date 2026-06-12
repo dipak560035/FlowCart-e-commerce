@@ -1,65 +1,6 @@
 
-
-
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import { Navbar } from "@/component
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const infoRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Title animation
-    gsap.fromTo(titleRef.current,
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power3.out",
-      }
     );
 
-    // Form animation
-    const tl = gsap.timeline();
-    tl.fromTo(
-      formRef.current,
-      { y: 30, opacity: 0, scale: 0.95 },
-      { y: 0, opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }
-    );
-
-    // Info cards animation with stagger
-    gsap.fromTo(
-      cardsRef.current,
-      { y: 30, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: infoRef.current,
-          start: "top 80%",
-        },
-      }
-    );
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      }, 3000);
-    }, 1500);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
