@@ -39,16 +39,7 @@ export function ProductCard({ product }: ProductCardProps) {
         
         {/* Action Buttons */}
         <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              dispatch(openQuickView(product));
-            }}
-            className="p-2.5 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
-          >
-            <Eye className="h-4 w-4" />
-          </button>
+         
           <button
             onClick={(e) => {
               e.preventDefault();
