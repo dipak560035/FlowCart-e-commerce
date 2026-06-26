@@ -27,9 +27,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.image ? (
          
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-              <span className="text-4xl">📦</span>
-            </div>
+           
           )}
           {product.onSale && (
             <div className="absolute top-3 left-3 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full">
