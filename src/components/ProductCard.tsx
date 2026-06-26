@@ -66,12 +66,7 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
         
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <p className="text-xl font-bold text-white">Rs.{product.price}</p>
-            {product.originalPrice && (
-              <p className="text-sm text-gray-500 line-through">Rs.{product.originalPrice}</p>
-            )}
-          </div>
+        
           <button
             onClick={() => dispatch(addToCart(product))}
             className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110 group-hover:bg-blue-500"
