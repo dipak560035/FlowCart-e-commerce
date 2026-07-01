@@ -156,13 +156,7 @@ export default function CareersPage() {
               <span className="text-sm text-gray-300">Join Our Team</span>
             </div>
             
-            <h1 
-              ref={titleRef}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
-            >
-              Join Our{" "}
-              <
-            </h1>
+           
             
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               We're always looking for talented people to join our team and help us build 
