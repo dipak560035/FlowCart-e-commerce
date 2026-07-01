@@ -29,16 +29,7 @@ const jobs = [
     description: "Help us build the next generation of our e-commerce platform using modern technologies like React, Next.js, and TypeScript.",
     featured: false
   },
-  {
-    id: 3,
-    title: "Marketing Manager",
-    department: "Marketing",
-    location: "kathmandu, Nepal",
-    type: "Full-time",
-    salary: "90k - 130k",
-    description: "Lead our marketing efforts and help us grow our brand and reach new customers across digital channels.",
-    featured: false
-  },
+ 
   {
     id: 4,
     title: "Customer Support Specialist",
