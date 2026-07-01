@@ -9,16 +9,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const jobs = [
-  {
-    id: 1,
-    title: "Senior Product Designer",
-    department: "Design",
-    location: "kathmandu, Nepal",
-    type: "Full-time",
-    salary: "30k - 50k",
-    description: "Join our design team to create beautiful and intuitive user experiences for our customers. You'll work closely with product managers and engineers to bring ideas to life.",
-    featured: true
-  },
+ 
   {
     id: 2,
     title: "Frontend Developer",
