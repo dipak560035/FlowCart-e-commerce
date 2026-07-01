@@ -77,11 +77,7 @@ const culturePoints = [
     title: "Team Events",
     description: "Regular meetups and retreats"
   },
-  {
-    icon: Briefcase,
-    title: "Inclusive Culture",
-    description: "Open, diverse, and welcoming environment"
-  }
+  
 ];
 
 export default function CareersPage() {
