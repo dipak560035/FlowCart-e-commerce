@@ -139,16 +139,7 @@ export default function CareersPage() {
     gsap.fromTo(
       jobsRef.current,
       { y: 30, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: jobsRef.current[0],
-          start: "top 85%",
-        },
+     
       }
     );
   }, []);
