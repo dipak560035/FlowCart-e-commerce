@@ -53,10 +53,7 @@ const jobs = [
 
 const culturePoints = [
   {
-    icon: Zap,
-    title: "Flexible Work",
-    description: "Remote-first culture with flexible hours"
-  },
+  
   {
     icon: DollarSign,
     title: "Competitive Pay",
