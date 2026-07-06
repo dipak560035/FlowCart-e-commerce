@@ -40,15 +40,7 @@ export default function AboutPage() {
     gsap.fromTo(
       storyRef.current,
       { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: storyRef.current,
-          start: "top 80%",
-        },
+ 
       }
     );
 
