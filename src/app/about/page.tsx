@@ -64,15 +64,7 @@ export default function AboutPage() {
     gsap.fromTo(
       valuesTitleRef.current,
       { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: valuesTitleRef.current,
-          start: "top 85%",
-        },
+     
       }
     );
 
