@@ -59,13 +59,7 @@ export default function AboutPage() {
     );
 
     // Values cards animation with stagger
-    gsap.fromTo(
-      valuesRef.current?.children || [],
-      { y: 50, opacity: 0, scale: 0.95 },
-      {
-    
-      }
-    );
+
 
     // Stats animation
     gsap.fromTo(
