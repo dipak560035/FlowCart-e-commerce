@@ -63,9 +63,7 @@ export default function AboutPage() {
     // Values title animation
     gsap.fromTo(
       valuesTitleRef.current,
-      { y: 40, opacity: 0 },
      
-      }
     );
 
     // Values cards animation with stagger
