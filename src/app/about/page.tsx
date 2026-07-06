@@ -63,16 +63,7 @@ export default function AboutPage() {
       valuesRef.current?.children || [],
       { y: 50, opacity: 0, scale: 0.95 },
       {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 0.7,
-        stagger: 0.1,
-        ease: "back.out(0.8)",
-        scrollTrigger: {
-          trigger: valuesRef.current,
-          start: "top 80%",
-        },
+    
       }
     );
 
