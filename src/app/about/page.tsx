@@ -48,15 +48,7 @@ export default function AboutPage() {
       storyImageRef.current,
       { x: 50, opacity: 0, scale: 0.9 },
       {
-        x: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: storyRef.current,
-          start: "top 80%",
-        },
+
       }
     );
 
