@@ -125,10 +125,7 @@ export default function AboutPage() {
               <span className="text-sm text-gray-300">Our Story</span>
             </div>
             
-            <h1 
-              ref={titleRef}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
-            >
+
               About{" "}
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 FlowCart
