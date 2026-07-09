@@ -103,10 +103,7 @@ export function Footer() {
               <h4 className="font-semibold text-white mb-4 text-lg">Shop</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/products" className="text-gray-400 hover:text-blue-400 transition duration-300 text-sm flex items-center gap-2 group">
-                    <span className="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all duration-300" />
-                    All Products
-                  </Link>
+               
                 </li>
                 <li>
                   <button 
