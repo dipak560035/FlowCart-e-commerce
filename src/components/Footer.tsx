@@ -63,9 +63,7 @@ export function Footer() {
                   FlowCart
                 </h3>
               </div>
-              <p className="text-gray-400 text-sm mb-4 leading-relaxed">
-                Premium lifestyle tech brand dedicated to bringing you the best products that enhance your everyday life.
-              </p>
+            
               <div className="flex gap-3">
             
                   <Twitter className="w-4 h-4 text-gray-400 hover:text-white transition" />
