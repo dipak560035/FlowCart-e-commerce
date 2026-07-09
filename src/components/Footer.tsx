@@ -78,13 +78,7 @@ export function Footer() {
         
                   <Facebook className="w-4 h-4 text-gray-400 hover:text-white transition" />
                 </a>
-                <a
-                  href="https://youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110"
-                  aria-label="Youtube"
-                >
+         
                   <Youtube className="w-4 h-4 text-gray-400 hover:text-white transition" />
                 </a>
               </div>
