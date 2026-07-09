@@ -59,9 +59,7 @@ export function Footer() {
             <div className="lg:col-span-1">
               <div className="flex items-center gap-2 mb-4">
                 <Sparkles className="w-6 h-6 text-blue-400" />
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                  FlowCart
-                </h3>
+                
               </div>
             
               <div className="flex gap-3">
