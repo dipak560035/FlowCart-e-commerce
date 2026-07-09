@@ -107,10 +107,7 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/products?sort=popular" className="text-gray-400 hover:text-blue-400 transition duration-300 text-sm flex items-center gap-2 group">
-                    <span className="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all duration-300" />
-                    Best Sellers
-                  </Link>
+
                 </li>
               </ul>
             </div>
