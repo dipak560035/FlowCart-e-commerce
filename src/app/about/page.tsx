@@ -159,10 +159,7 @@ export default function AboutPage() {
               </span>
             </h1>
             
-            <p 
-              ref={heroRef}
-              className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
-            >
+          
               We're a premium lifestyle tech brand dedicated to bringing you the best products 
               that enhance your everyday life.
             </p>
