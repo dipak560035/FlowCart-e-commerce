@@ -131,12 +131,7 @@ export default function AboutPage() {
       description: "We're always looking for new ways to improve and bring the latest technology to our customers.",
       gradient: "from-purple-500/20 to-pink-500/20"
     },
-    {
-      icon: "💚",
-      title: "Sustainability",
-      description: "We're committed to reducing our environmental impact and creating a better future.",
-      gradient: "from-green-500/20 to-emerald-500/20"
-    },
+ 
     {
       icon: "🤝",
       title: "Customer First",
