@@ -125,12 +125,7 @@ export default function AboutPage() {
       description: "We never compromise on quality. Every product is carefully selected to meet our high standards.",
       gradient: "from-blue-500/20 to-cyan-500/20"
     },
-    {
-      icon: "🎯",
-      title: "Innovation",
-      description: "We're always looking for new ways to improve and bring the latest technology to our customers.",
-      gradient: "from-purple-500/20 to-pink-500/20"
-    },
+  
  
    
   ];
