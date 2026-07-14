@@ -112,9 +112,7 @@ export function Categories() {
               Category
             </span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Discover our curated collection of premium products
-          </p>
+          
         </div>
 
         {/* Categories Grid - Large Prominent Boxes */}
