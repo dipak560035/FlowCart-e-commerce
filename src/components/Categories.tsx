@@ -105,10 +105,7 @@ export function Categories() {
         <div className="text-center mb-12">
          
             Shop by{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Category
-            </span>
-          </h2>
+         
           
         </div>
 
