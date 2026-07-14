@@ -150,9 +150,7 @@ export function Categories() {
                     <div className="mt-4 opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
                       <span className="text-sm text-gray-300 flex items-center gap-2">
                         Explore Collection
-                        <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
+                        
                       </span>
                     </div>
                   </div>
