@@ -55,13 +55,7 @@ export default function CartPage() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
            
-              <h1 
-                ref={titleRef}
-                className="text-4xl md:text-5xl font-bold"
-              >
-                Your{" "}
-                >
-              </h1>
+           
               <p className="text-gray-400 mt-2">{cartItems.length} items in your cart</p>
             </div>
           </div>
