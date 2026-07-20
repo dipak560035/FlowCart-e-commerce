@@ -49,13 +49,7 @@ export default function CartPage() {
       <main className="pt-28 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
-          <Link 
-            href="/products" 
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-all duration-300 group mb-6"
-          >
-            <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-            Continue Shopping
-          </Link>
+      
 
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
