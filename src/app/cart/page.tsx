@@ -54,10 +54,7 @@ export default function CartPage() {
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
-              <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10 mb-4">
-                <ShoppingCart className="w-4 h-4 text-blue-400" />
-                <span className="text-sm text-gray-300">Shopping Cart</span>
-              </div>
+           
               <h1 
                 ref={titleRef}
                 className="text-4xl md:text-5xl font-bold"
