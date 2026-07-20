@@ -77,13 +77,7 @@ export default function CartPage() {
                 </div>
                 <h2 className="text-2xl font-semibold text-white mb-2">Your cart is empty</h2>
                 <p className="text-gray-400 mb-8">Looks like you haven't added any items yet</p>
-                <Link 
-                  href="/products" 
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 group"
-                >
-                  <span>Start Shopping</span>
-                  <ChevronLeft className="h-4 w-4 rotate-180 transition-transform group-hover:translate-x-1" />
-                </Link>
+            
               </div>
             ) : (
               <div className="grid lg:grid-cols-3 gap-8">
