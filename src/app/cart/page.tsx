@@ -63,9 +63,7 @@ export default function CartPage() {
                 className="text-4xl md:text-5xl font-bold"
               >
                 Your{" "}
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Cart
-                </span>
+                >
               </h1>
               <p className="text-gray-400 mt-2">{cartItems.length} items in your cart</p>
             </div>
