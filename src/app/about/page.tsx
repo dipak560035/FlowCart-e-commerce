@@ -135,12 +135,7 @@ export default function AboutPage() {
   
   ];
 
-  const stats = [
-    { value: "2020", label: "Founded", icon: "🎯" },
-    { value: "50K+", label: "Happy Customers", icon: "😊" },
-    { value: "500+", label: "Products", icon: "📦" },
-    { value: "24/7", label: "Support", icon: "💬" }
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-950 to-black">
