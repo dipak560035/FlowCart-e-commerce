@@ -118,12 +118,7 @@ export default function AboutPage() {
     },
 
 
-    {
-      icon: "🤝",
-      title: "Customer First",
-      description: "Our customers are at the heart of everything we do. Your satisfaction is our top priority.",
-      gradient: "from-orange-500/20 to-red-500/20"
-    }
+
   ];
 
   const stats = [
