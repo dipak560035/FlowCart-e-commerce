@@ -265,9 +265,7 @@ export default function AboutPage() {
                     </p>
                   </div>
                   
-                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <ArrowRight className="w-4 h-4 text-blue-400" />
-                  </div>
+                
                 </div>
               ))}
             </div>
